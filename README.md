@@ -33,7 +33,7 @@ The checkout process is implemented using Stripe. A user can securely purchase t
 - Stripe
 
 ## Authors
-- [Taylan Postalci]
+- Taylan Postalci
 
 ## License
 This project is licensed under the [Learn.co Educational Content License] License - see the [LICENSE.md](LICENSE.md) file for details.
