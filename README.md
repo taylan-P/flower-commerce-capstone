@@ -1,6 +1,6 @@
 # README
 
-This is a web application that allows users to view and purchase flowers. The application utilizes a Rails API backend with a React frontend. The application has the following models:
+ is a web application that allows users to view and purchase flowers. The application utilizes a Rails API backend with a React frontend. The application has the following models:
 - User: A user can create an account and login to the site.
 - Flowers: A user can view the different flowers available for purchase.
 - Cart: A user can add flowers to their cart and proceed to checkout.
@@ -33,7 +33,7 @@ The checkout process is implemented using Stripe. A user can securely purchase t
 - Stripe
 
 ## Authors
-- [Taylan Postalci]
+- Taylan Postalci
 
 ## License
 This project is licensed under the [Learn.co Educational Content License] License - see the [LICENSE.md](LICENSE.md) file for details.
