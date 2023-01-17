@@ -1,38 +1,278 @@
-.App {
-  text-align: center;
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato", sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body {
+  background-color: #DAF7A6;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+/* 
+.home,
+.reports,
+.products {
   display: flex;
-  flex-direction: column;
+  height: 100vh;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  font-size: 3rem;
+  background-color: #000;
+  color: rgb(255, 255, 255);
+  flex-direction: column;
+
+} */
+
+/* Navbar CSS */
+.navbar {
+  background-color: cornsilk;
+  height: fill;
+  width: 6rem;
+  display: flex;
+  justify-content: flex-start;
+  align-items: top;
+  position: fixed;
+  top: 0;
+  left: 0;
+
+
+
 }
 
-.App-link {
-  color: #61dafb;
+.menu-bars {
+  margin-left: 2rem;
+  margin-top: 2rem;
+  font-size: 2rem;
+  background: none;
+  color: rgb(0, 0, 0);
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.nav-menu {
+  background-color: cornsilk;
+  width: 250px;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  position: fixed;
+  top: 0;
+  left: -100%;
+  transition: 850ms;
+}
+
+.nav-menu.active {
+  left: 0;
+  transition: 450ms;
+}
+
+.nav-text {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 16px 0px 8px 8px;
+  list-style: none;
+  height: 60px;
+}
+
+.nav-text a {
+  text-decoration: none;
+  color: #000000;
+  font-size: 24px;
+  width: 95%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  padding: 0 16px;
+  border-radius: 4px;
+}
+
+.nav-text a:hover {
+  background-color: #000000;
+  color: cornsilk;
+}
+
+.nav-menu-items {
+  width: 100%;
+}
+
+.navbar-toggle {
+  background-color: cornsilk;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+
+span {
+  margin-left: 16px;
+}
+
+/* Sign in CSS */
+/* Style the form container */
+.form-container {
+  width: 500px;
+  margin: auto;
+  /* margin-left: auto;
+  margin-right: auto;
+  margin-top: auto; */
+
+  background: cornsilk;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  padding: 20px;
+  box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.signup-page {
+  /* height: max-content;
+  color: #d50000;
+   */
+  display: flex;
+  background-color: #DAF7A6;
+  height: 100vh;
+  width: fill;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Style the form header */
+.form-header {
+  margin: 0 0 20px 0;
+  text-align: center;
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+}
+
+/* Style the form input fields */
+.form-input {
+  width: 100%;
+  height: 36px;
+  margin: 8px 0;
+  padding: 0 16px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+  color: #666;
+}
+
+/* Style the form buttons */
+.form-button {
+  width: 100%;
+  height: 36px;
+  margin: 8px 0;
+  padding: 0 16px;
+  border: none;
+  border-radius: 5px;
+  background-color: #333;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.form-button:hover {
+  background-color: #555;
+}
+
+/* Style the form error message */
+.form-error {
+  margin: 8px 0;
+  padding: 8px;
+  background-color: #ffdddd;
+  border-radius: 5px;
+  font-size: 14px;
+  color: #d50000;
+}
+
+/* style the feed */
+/* Style the feed */
+.feed {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Style the post */
+.post {
+  border-bottom: 1px solid #e6e6e6;
+  padding: 20px;
+}
+
+.post .header {
+  display: flex;
+  align-items: center;
+}
+
+.post .header img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.post .header .name {
+  font-weight: bold;
+}
+
+.post .header .time {
+  color: #999;
+  font-size: 12px;
+  margin-left: auto;
+}
+
+.post .content {
+  margin: 20px 0;
+}
+
+.post .content p {
+  margin: 0;
+}
+
+.post .footer {
+  display: flex;
+  align-items: center;
+  padding: 10px 0;
+  border-top: 1px solid #e6e6e6;
+}
+
+.post .footer i {
+  font-size: 18px;
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.post .footer .likes {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+.post .footer .comments {
+  font-weight: bold;
+  margin-right: 10px;
+}
+
+/* Style the form for creating new posts */
+feed-form {
+  max-width: 600px;
+  margin: 20px auto;
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  padding: 20px;
+}
+
+form-textarea {
+  width: 100%;
+  height: 100px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 14px;
+  resize: none;
 }
