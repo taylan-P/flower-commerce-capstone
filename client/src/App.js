@@ -18,9 +18,9 @@ function App() {
         response.json().then((user) => setUser(user));
       }
     });
-    if (!user) navigate("/signup")
   }, []);
-  //  if (!user) return <Signup onLogin={setUser} />
+  if (!user) return <Signup onLogin={setUser} />
+  // if (!user) navigate("/signup")
 
   // function handleLogin(user) {
   //   setUser(user);
@@ -34,7 +34,7 @@ function App() {
   
     <Routes>
       <Route path="/" element={<Landing />} />
-      <Route path="/signup" element={<Signup/>} />
+      {/* <Route path="/signup" element={<Signup/>} /> */}
     </Routes>
  
   );

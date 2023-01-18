@@ -3,82 +3,84 @@ import { useNavigate } from 'react-router-dom';
 
 export default function Signup({ onLogin }) {
 
-    const [upUsername, setUpUsername] = useState('')
-  const [upPassword, setUpPassword] = useState('')
- const [showSignIn,setSignIn] = useState(true)
+  const [username, setUsername] = useState('')
+  const [password, setPassword] = useState('')
+  const [showSignIn,setSignIn] = useState(true)
   const navigate = useNavigate()
+  const [errors, setErrors] = useState('')
+  const [isLoading, setIsLoading] = useState(false);
+
 
 
   const handleSignup = (e) => {
     e.preventDefault()
-    fetch('/users', {
+    fetch('/signup', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({
-        upUsername,
-        upPassword
-      }),
-    })
-    navigate('/')
-  }
-    // function handleLogin(e) {
-    //     e.preventDefault();
-    //     setIsLoading(true);
-    //     fetch("/login", {
-    //       method: "POST",
-    //       headers: {
-    //         "Content-Type": "application/json",
-    //       },
-    //       body: JSON.stringify({ username, password }),
-    //     }).then((r) => {
-    //       setIsLoading(false);
-    //       if (r.ok) {
-    //         r.json().then((user) => onLogin(user));
-    //         // navigate('/signin')
-    //       } else {
-    //         r.json().then((err) => setErrors(err.errors));
-    //       }
-    //     });
-    //   }
+      body: JSON.stringify({username,password}),
+    }).then((r) => {
+        if (r.ok) {
+          r.json().then((user) => onLogin(user));
+        } else {
+          r.json().then((err) => setErrors(err.errors));
+        }
+      })
+    }
+    // navigate('/')
+  
+    function handleLogin(e) {
+        e.preventDefault();
+        fetch("/login", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ username, password }),
+        }).then((r) => {
+          if (r.ok) {
+            r.json().then((user) => onLogin(user));
+          } else {
+            r.json().then((err) => setErrors(err.errors));
+          }
+        });
+      }
 
 
-     const handleChangeUpUsername = e => setUpUsername(e.target.value)
-     const handleChangeUpPassword = e => setUpPassword(e.target.value)
+     const handleChangeUsername = e => setUsername(e.target.value)
+     const handleChangePassword = e => setPassword(e.target.value)
     // const handleChangeImage = e => setImage_url(e.target.value)
 
     return (
         <>
         {showSignIn ? (
             <>
-            <a onClick={()=>setSignIn(false)}>Hello World!</a>
+            {/* <a onClick={()=>setSignIn(false)}>Hello World!</a> */}
+            <div className='signup-page'>
+            <div className="form-container">
+                <form onSubmit={handleLogin}>
+                    <div className="form-header">Welcome</div>
+                    <p style={{ color: 'red' }}>{errors ? errors : null}</p>
+                    <input type="text" name="username" placeholder="username..." className="form-input" value={username} onChange={handleChangeUsername} />
+                    <input type="password" name="password" placeholder="password..." className="form-input" value={password} onChange={handleChangePassword} />
+                    <button type="submit" className="form-button">Sign In</button>
+
+                </form>
+                <a onClick={()=> setSignIn(false)}> Don't Have An Account? Sign Up! </a>
+            </div>
+            
+            </div >
             </>
-
-// <div className='signup-page'>
-// <div className="form-container">
-
-
-//     <form onSubmit={handleLogin}>
-//         <div className="form-header">Welcome</div>
-//         <h1 className='form-header'>Please Sign-in or <a href='/signup'>Sign-Up</a></h1>
-//         <p style={{ color: 'red' }}>{error ? error : null}</p>
-//         <input type="text" name="username" placeholder="username..." className="form-input" value={username} onChange={handleChangeUsername} />
-//         <input type="password" name="password" placeholder="password..." className="form-input" value={password} onChange={handleChangePassword} />
-//         <button type="submit" className="form-button">Sign In</button>
-//     </form>
-//     <a href='/signup'> Don't Have An Account? Sign Up! </a>
-// </div>
-
-// </div >
         
         ):(
         <div className="signup-page">
             <div className="form-container">
                 <form onSubmit={handleSignup}>
                     <div className="form-header">Sign Up</div>
-                    <input type="text" name="username" placeholder="username..." className="form-input" value={upUsername} onChange={handleChangeUpUsername} />
-                    <input type="password" name="password" placeholder="password..." className="form-input" value={upPassword} onChange={handleChangeUpPassword} />
+                    <p style={{ color: 'red' }}>{errors ? errors : null}</p>
+                    <input type="text" name="username" placeholder="username..." className="form-input" value={username} onChange={handleChangeUsername} />
+                    <input type="password" name="password" placeholder="password..." className="form-input" value={password} onChange={handleChangePassword} />
                     <button type="submit" className="form-button"> Sign Up</button>
                 </form>
                  <p>
