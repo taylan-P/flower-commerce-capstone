@@ -16,10 +16,11 @@ function App() {
     fetch("/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setUser(user));
-      }
+      } else 
+      navigate('signup')
     });
   }, []);
-  if (!user) return <Signup onLogin={setUser} />
+  // if (!user) return <Signup onLogin={setUser} />
   // if (!user) navigate("/signup")
 
   // function handleLogin(user) {
@@ -34,7 +35,7 @@ function App() {
   
     <Routes>
       <Route path="/" element={<Landing />} />
-      {/* <Route path="/signup" element={<Signup/>} /> */}
+      <Route path="/signup" element={<Signup onLogin={setUser}/>} />
     </Routes>
  
   );
