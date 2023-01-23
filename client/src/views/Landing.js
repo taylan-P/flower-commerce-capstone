@@ -5,26 +5,11 @@ import Navbar from "../components/Navbar";
 import LandingContent from "../components/landing/LandingContent";
 
 
-export default function Landing({onRender , user}) {
-    // const navigate = useNavigate();
-    // // const [user, setUser] = useState(null);
-
-    // useEffect(() => {
-    //     fetch("/me").then((response) => {
-    //         if (response.ok) {
-    //             response.json().then((user) => onRender(user));
-    //         }
-    //     });
-    // }, []);
-
-    // if (!user) navigate("/signup")
+export default function Landing() {
 
     return (
         <>
-            {/* <Navbar /> */}
-            <div>
-                Welcome to the landing page
-            </div>
+            <LandingContent />
         </>
     );
 }
