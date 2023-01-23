@@ -5,6 +5,7 @@ import {  Routes, Route , useNavigate } from "react-router-dom";
 import Navbar from './components/Navbar';
 import Landing from './views/Landing';
 import Signup from './views/Signup';
+import ProductPage from './views/ProductPage';
 // import './App.css';
 
 
@@ -37,6 +38,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/signup" element={<Signup onLogin={setUser}/>} />
+      <Route path="/products" element={<ProductPage />} />
     </Routes>
     </>
  

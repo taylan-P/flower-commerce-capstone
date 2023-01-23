@@ -1,8 +1,8 @@
 import React from 'react';
 
-export default function Cart() {
+export default function Cart({isOpen}) {
   return (
-    <div>
+    <div className={isOpen ? 'Cart open' : 'Cart'}>
       <h2>My Cart</h2>
       <ul>
         <li>Item 1</li>
@@ -11,4 +11,3 @@ export default function Cart() {
     </div>
   );
 }
-
