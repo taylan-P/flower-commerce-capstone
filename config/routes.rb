@@ -1,10 +1,10 @@
 Rails.application.routes.draw do
   
   resources :cart_items, only: [:index]
-  resources :products
+  resources :products , only: [:index]
   # resources :cart_items
   # resources :products
-  resources :carts
+  # resources :carts
   # resources :product_categories
   # resources :users
   post "/signup", to: "users#create"
