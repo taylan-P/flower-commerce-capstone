@@ -2,7 +2,7 @@ import React from 'react';
 import { useState, useEffect } from 'react';
 import {  Routes, Route , useNavigate } from "react-router-dom";
 
-// import Navbar from './components/Navbar';
+import Navbar from './components/Navbar';
 import Landing from './views/Landing';
 import Signup from './views/Signup';
 // import './App.css';
@@ -16,10 +16,11 @@ function App() {
     fetch("/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setUser(user));
-      }
+      } else 
+      navigate('signup')
     });
   }, []);
-  if (!user) return <Signup onLogin={setUser} />
+  // if (!user) return <Signup onLogin={setUser} />
   // if (!user) navigate("/signup")
 
   // function handleLogin(user) {
@@ -31,11 +32,13 @@ function App() {
   // }
 
   return (
-  
+    <>
+    <Navbar user={user} onLogout={setUser}/>
     <Routes>
       <Route path="/" element={<Landing />} />
-      {/* <Route path="/signup" element={<Signup/>} /> */}
+      <Route path="/signup" element={<Signup onLogin={setUser}/>} />
     </Routes>
+    </>
  
   );
 }

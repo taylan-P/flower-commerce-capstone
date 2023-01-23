@@ -8,7 +8,7 @@ export default function Signup({ onLogin }) {
   const [showSignIn,setSignIn] = useState(true)
   const navigate = useNavigate()
   const [errors, setErrors] = useState('')
-  const [isLoading, setIsLoading] = useState(false);
+  // const [isLoading, setIsLoading] = useState(false);
 
 
 
@@ -23,6 +23,7 @@ export default function Signup({ onLogin }) {
     }).then((r) => {
         if (r.ok) {
           r.json().then((user) => onLogin(user));
+          navigate('/')
         } else {
           r.json().then((err) => setErrors(err.errors));
         }
@@ -41,6 +42,7 @@ export default function Signup({ onLogin }) {
         }).then((r) => {
           if (r.ok) {
             r.json().then((user) => onLogin(user));
+            navigate('/')
           } else {
             r.json().then((err) => setErrors(err.errors));
           }

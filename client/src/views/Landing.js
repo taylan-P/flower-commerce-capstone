@@ -21,7 +21,7 @@ export default function Landing({onRender , user}) {
 
     return (
         <>
-            <Navbar />
+            {/* <Navbar /> */}
             <div>
                 Welcome to the landing page
             </div>
