@@ -30,7 +30,7 @@ export default function Navbar({ user, onLogout }) {
                 <nav className='navbar'>
                     {/* <Profile /> */}
                     <ShoppingCartIcon onClick={handleCartClick} size={20} strokeWidth={1} className='shopping-cart' />
-                    <button className='btn' onClick={()=>navigate('products')}> Products </button>
+                    <button onClick={()=>navigate('products')}> Products </button>
                     <ProfileDrop onLogout={handleLogoutClick} />
                     <Cart isOpen={isCartOpen}/>
                 </nav>
