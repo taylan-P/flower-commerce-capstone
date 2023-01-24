@@ -6,9 +6,32 @@
 }
 
 body {
-  background-color: #DAF7A6;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  color: #d58000;
 }
 
+/* Product CSS */
+.product-card-container {
+  width: 250px;
+  height: 300px;
+  border: 1px solid rgb(255, 77, 0);
+  padding: 10px;
+  margin: 5px;
+}
+.product-card {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  
+}
+.product-card-container img {
+  width: 100%;
+  height: fill;
+}
+.product-card-container button {
+  background-color: #d58000;
+}
 /* 
 .home,
 .reports,
@@ -89,8 +112,10 @@ body {
 } 
 
 .Profile img {
-  width: 100%;
+
+  width: 3rem;
 }
+
 .Profile:hover {
   /* border: red; */
   border-color: rgb(2, 255, 74);

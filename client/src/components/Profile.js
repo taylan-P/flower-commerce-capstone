@@ -1,13 +1,7 @@
-import React from 'react';
+// import React from 'react';
 
-function Profile({ imageUrl }) {
-  return (
-    <>
-    <div className='Profile'>
-      <img src={imageUrl} alt="User Profile" />
-    </div>
-    </>
-  );
-}
+// function Profile({ imageUrl }) {
+//   return ( <img src={imageUrl} alt="User Profile" />  );
+// }
 
-export default Profile;
+// export default Profile;
