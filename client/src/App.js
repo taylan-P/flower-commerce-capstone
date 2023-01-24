@@ -11,7 +11,7 @@ import Error from './views/Errors';
 
 function App() {
   const [user, setUser] = useState(null);
-  const [products , setProducts] = useState(null);
+  // const [products , setProducts] = useState(null);
   const navigate = useNavigate();
   
   useEffect(() => {
@@ -44,7 +44,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/signup" element={<Signup onLogin={setUser} />} />
-      <Route path="/products" element={<ProductPage products={products}/>} />
+      <Route path="/products" element={<ProductPage/>} />
       <Route path="/error" element={<Error />} />
     </Routes>
     </>

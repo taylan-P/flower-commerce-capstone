@@ -9,8 +9,7 @@ export default function ProductList({products}){
               product={product}
             />
           ));
-    return <ul className="product-card">{renderProducts}</ul>
-        
+    return <ul className="product-card">{renderProducts}</ul> 
     
 }
 
