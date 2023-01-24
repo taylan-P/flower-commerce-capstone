@@ -1,27 +1,29 @@
 import React, { useState } from "react";
 import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import ProductList from "../components/products/ProductList";
 
-export default function ProductPage({products}){
- const [plants , setPlants] = useState(null)
+export default function ProductPage(){
+ const [products , setProducts] = useState([])
 const navigate = useNavigate()
     useEffect(() => {
         fetch("/products")
         .then((response) =>{
             if (response.ok) {
                 response.json()
-                .then(setPlants);
+                .then(setProducts);
             } else 
             navigate('/error')
         });
     }, []);
-    // console.log(plants);
+    // console.log(products);
     
     // .then((res) => res.json())
     // .then(setPlants)
     // console.log(plants)
     return(
         <>
+        <ProductList products={products} />
         </>
     )
 }

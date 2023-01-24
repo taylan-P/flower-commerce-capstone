@@ -10,8 +10,8 @@ end
 # 10.times do
 #   Product.create(name: Faker::Commerce.product_name, price: Faker::Commerce.price, inventory_count: Faker::Number.within(range: 1..100),image: Faker::LoremPixel.image())
 # end
-15.times do
-  Product.create!(name: Faker::Commerce.product_name + " flower", price: Faker::Commerce.price, inventory_count: Faker::Number.within(range: 1..100), image: "https://picsum.photos/640/480?random&category=flower")
+20.times do
+  Product.create!(name: Faker::Commerce.product_name, price: Faker::Commerce.price, inventory_count: Faker::Number.within(range: 1..100), image: "https://picsum.photos/640/480?random&category=flower")
 end
 
 

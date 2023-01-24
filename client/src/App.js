@@ -1,7 +1,6 @@
 import React from 'react';
 import { useState, useEffect } from 'react';
 import {  Routes, Route , useNavigate } from "react-router-dom";
-
 import Navbar from './components/Navbar';
 import Landing from './views/Landing';
 import Signup from './views/Signup';
