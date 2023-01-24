@@ -6,21 +6,28 @@ import Navbar from './components/Navbar';
 import Landing from './views/Landing';
 import Signup from './views/Signup';
 import ProductPage from './views/ProductPage';
+import Error from './views/Errors';
 // import './App.css';
 
 
 function App() {
   const [user, setUser] = useState(null);
+  const [products , setProducts] = useState(null);
   const navigate = useNavigate();
-
+  
   useEffect(() => {
     fetch("/me").then((response) => {
       if (response.ok) {
         response.json().then((user) => setUser(user));
       } else 
-      navigate('signup')
+      navigate('/signup')
     });
   }, []);
+  // function pullProducts(){
+  //   fetch('/products')
+  //   .then((res) => res.json())
+  //   .then(setProducts)
+  // }
   // if (!user) return <Signup onLogin={setUser} />
   // if (!user) navigate("/signup")
 
@@ -37,8 +44,9 @@ function App() {
     <Navbar user={user} onLogout={setUser}/>
     <Routes>
       <Route path="/" element={<Landing />} />
-      <Route path="/signup" element={<Signup onLogin={setUser}/>} />
-      <Route path="/products" element={<ProductPage />} />
+      <Route path="/signup" element={<Signup onLogin={setUser} />} />
+      <Route path="/products" element={<ProductPage products={products}/>} />
+      <Route path="/error" element={<Error />} />
     </Routes>
     </>
  
