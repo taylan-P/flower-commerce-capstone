@@ -3,7 +3,7 @@ require 'faker'
 
 # Create users
 5.times do
-  User.create(username: Faker::Name.unique.name, password: Faker::Alphanumeric.alphanumeric(number: 10))
+  User.create(username: Faker::Name.unique.name, password:"123")
 end
 
 # Create products

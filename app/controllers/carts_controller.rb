@@ -6,7 +6,7 @@ class CartsController < ApplicationController
     end
     def show
         cart = Cart.find(params[:id])
-        render json: cart,serializer: CartsWithCartItemsSerializer, status: :ok
+        render json: cart, status: :ok
     end
     # def create
     #     carts = Cart.create!(cart_params)

@@ -22,6 +22,7 @@ function App() {
       navigate('/signup')
     });
   }, []);
+  console.log(user)
   // function pullProducts(){
   //   fetch('/products')
   //   .then((res) => res.json())
@@ -44,7 +45,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/signup" element={<Signup onLogin={setUser} />} />
-      <Route path="/products" element={<ProductPage/>} />
+      <Route path="/products" element={<ProductPage currentUser={user}/>} />
       <Route path="/error" element={<Error />} />
     </Routes>
     </>

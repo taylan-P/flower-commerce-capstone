@@ -1,12 +1,13 @@
 import React from "react";
 import ProductCard from "./ProductCard"
 
-export default function ProductList({products}){
+export default function ProductList({products , currentUser}){
     console.log(products);
     const renderProducts = products.map((product) => (
             <ProductCard
               key={product.id}
               product={product}
+              currentUser={currentUser}
             />
           ));
     return <ul className="product-card">{renderProducts}</ul> 

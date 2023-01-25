@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   # resources :cart_items
   # resources :products
   # resources :product_categories
-  # resources :users
+  resources :users
    get '/products', to: 'products#index'
    post "/signup", to: "users#create"
    get "/me", to: "users#show"

@@ -1,22 +1,23 @@
 class CartItemsController < ApplicationController
-    skip_before_action :authorize
+    # skip_before_action :authorize
      def show
-        cart = Cart.find(params[:id])
+        cart = CartItem.find(params[:id])
         render json: cart, status: :ok
     end
     def index
-        carts = Cart.all
+        carts = CartItem.all
         render json: carts , status: :ok
     end
     def create
-        cart_id = params[:cart_id]
-        product_id = params[:product_id]
-        quantity = params[:quantity]
-        cart_item = CartItem.new(cart_id: cart_id, product_id: product_id, quantity: quantity)
-        if cart_item.save
-            render json: { message: "Successfully added product to cart!" }, status: :created
-        else
-            render json: { errors: cart_item.errors }, status: :unprocessable_entity
-        end
+        cart_item = CartItem.create!(cart_item_params)
+        render json: cart_item, status: :created
+    end
+    # def create
+    #     @current_user.cart.cart_items.create!(cart_item_params)
+    # end
+
+    private
+    def cart_item_params
+        params.permit(:cart_id , :product_id , :quantity)
     end
 end
