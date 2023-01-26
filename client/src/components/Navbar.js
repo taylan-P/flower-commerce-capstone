@@ -21,6 +21,18 @@ export default function Navbar({ user, onLogout }) {
   function handleCartClick() {
     setIsCartOpen(!isCartOpen);
   }
+  function handleCartCreate(){
+    fetch(`/carts`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+    },
+      body: JSON.stringify({
+        user_id: user.id,
+      }),
+    })
+  }
+  
     
     return (
         <>
@@ -30,7 +42,8 @@ export default function Navbar({ user, onLogout }) {
                 <nav className='navbar'>
                     {/* <Profile /> */}
                     <ShoppingCartIcon onClick={handleCartClick} size={20} strokeWidth={1} className='shopping-cart' />
-                    <button onClick={()=>navigate('products')}> Products </button>
+                    <button onClick={handleCartCreate} >Click me!</button>
+                    <button onClick={()=>navigate('/flowers')}> Products </button>
                     <ProfileDrop onLogout={handleLogoutClick} />
                     <Cart isOpen={isCartOpen}/>
                 </nav>

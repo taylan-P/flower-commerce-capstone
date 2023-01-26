@@ -3,11 +3,11 @@ import React from "react";
 export default function ProductCard({product,currentUser}) {
     
     const {id ,name, price , inventory_count , image} = product;
-    function getProduct(){
-        console.log({id});
-        console.log(currentUser.id);
-    }
-    function handleSubmit() {
+    // function getProduct(){
+    //     console.log({id});
+    //     console.log(currentUser.id);
+    // }
+    function addToCart() {
         // e.preventDefault();
         const newObj = {
           cart_id: currentUser.id,
@@ -29,7 +29,7 @@ export default function ProductCard({product,currentUser}) {
             <h3>{name}</h3>
             <p>${price}</p>
             <p> Only {inventory_count} Left!</p>
-            <button onClick={()=>handleSubmit()} className="form-button">click me!</button>
+            <button onClick={()=>addToCart()} className="form-button">click me!</button>
         </div>
     </div>
     

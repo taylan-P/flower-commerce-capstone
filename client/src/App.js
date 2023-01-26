@@ -45,7 +45,7 @@ function App() {
     <Routes>
       <Route path="/" element={<Landing />} />
       <Route path="/signup" element={<Signup onLogin={setUser} />} />
-      <Route path="/products" element={<ProductPage currentUser={user}/>} />
+      <Route path="/flowers" element={<ProductPage currentUser={user}/>} />
       <Route path="/error" element={<Error />} />
     </Routes>
     </>
