@@ -1,5 +1,5 @@
 class CartItemsController < ApplicationController
-    # skip_before_action :authorize
+    skip_before_action :authorize
      def show
         cart = CartItem.find(params[:id])
         render json: cart, status: :ok

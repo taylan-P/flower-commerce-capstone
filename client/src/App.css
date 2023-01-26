@@ -84,8 +84,8 @@ body {
 .Cart {
   position: fixed;
   top: 0;
-  right: -300px;
-  width: 300px;
+  right: -350px;
+  width: 350px;
   height: 100%;
   background: white;
   transition: right 0.3s ease-in-out;
@@ -94,6 +94,35 @@ body {
 .Cart.open {
   right: 0;
 }
+.CartItem {
+  /* display: flexbox; */
+  align-items: center;
+  padding: 5%;
+  border-bottom: 1px solid #ccc;
+  margin-top: 2rem;
+}
+
+.CartItem-image {
+  width: 25%;
+  height: 25%;
+  margin-right: 5%;
+}
+
+.CartItem-info {
+  display: flex;
+  margin-top: 10%;
+}
+
+.CartItem-remove {
+  font-size: 20px;
+  cursor: pointer;
+  color: #ccc;
+}
+
+.CartItem-remove:hover {
+  color: #000;
+}
+
 /* .profile-container {
  margin-inline-end: 0%;
 } */

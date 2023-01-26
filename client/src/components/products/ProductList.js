@@ -2,7 +2,7 @@ import React from "react";
 import ProductCard from "./ProductCard"
 
 export default function ProductList({products , currentUser}){
-    console.log(products);
+    // console.log(products);
     const renderProducts = products.map((product) => (
             <ProductCard
               key={product.id}
@@ -10,7 +10,7 @@ export default function ProductList({products , currentUser}){
               currentUser={currentUser}
             />
           ));
-    return <ul className="product-card">{renderProducts}</ul> 
+    return <div className="product-card">{renderProducts}</div> 
     
 }
 

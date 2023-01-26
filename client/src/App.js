@@ -11,6 +11,7 @@ import Error from './views/Errors';
 
 function App() {
   const [user, setUser] = useState(null);
+  
   // const [products , setProducts] = useState(null);
   const navigate = useNavigate();
   
@@ -22,7 +23,7 @@ function App() {
       navigate('/signup')
     });
   }, []);
-  console.log(user)
+  // console.log(user)
   // function pullProducts(){
   //   fetch('/products')
   //   .then((res) => res.json())

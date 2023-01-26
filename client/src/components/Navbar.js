@@ -8,7 +8,6 @@ import Cart from './Cart';
 export default function Navbar({ user, onLogout }) {
     const navigate = useNavigate()
     const [isCartOpen, setIsCartOpen] = useState(false);
-   
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
@@ -44,8 +43,8 @@ export default function Navbar({ user, onLogout }) {
                     <ShoppingCartIcon onClick={handleCartClick} size={20} strokeWidth={1} className='shopping-cart' />
                     <button onClick={handleCartCreate} >Click me!</button>
                     <button onClick={()=>navigate('/flowers')}> Products </button>
-                    <ProfileDrop onLogout={handleLogoutClick} />
-                    <Cart isOpen={isCartOpen}/>
+                    <ProfileDrop user={user} onLogout={handleLogoutClick} />
+                    <Cart user={user} isOpen={isCartOpen}/>
                 </nav>
 
             )}
