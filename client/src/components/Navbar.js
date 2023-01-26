@@ -5,10 +5,9 @@ import ProfileDrop from './ProfileDrop'
 import { useNavigate } from 'react-router-dom';
 import Cart from './Cart';
 
-export default function Navbar({ user, onLogout }) {
+export default function Navbar({ user, onLogout , cartItems}) {
     const navigate = useNavigate()
     const [isCartOpen, setIsCartOpen] = useState(false);
-   
     function handleLogoutClick() {
         fetch("/logout", { method: "DELETE" }).then((r) => {
             if (r.ok) {
@@ -21,6 +20,8 @@ export default function Navbar({ user, onLogout }) {
   function handleCartClick() {
     setIsCartOpen(!isCartOpen);
   }
+ 
+  
     
     return (
         <>
@@ -28,11 +29,10 @@ export default function Navbar({ user, onLogout }) {
                 <></>
             ) : (
                 <nav className='navbar'>
-                    {/* <Profile /> */}
                     <ShoppingCartIcon onClick={handleCartClick} size={20} strokeWidth={1} className='shopping-cart' />
-                    <button onClick={()=>navigate('products')}> Products </button>
-                    <ProfileDrop onLogout={handleLogoutClick} />
-                    <Cart isOpen={isCartOpen}/>
+                    <button onClick={()=>navigate('/flowers')}> Products </button>
+                    <ProfileDrop user={user} onLogout={handleLogoutClick} />
+                    <Cart cartItems={cartItems} isOpen={isCartOpen}/>
                 </nav>
 
             )}

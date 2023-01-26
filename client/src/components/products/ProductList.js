@@ -1,15 +1,17 @@
 import React from "react";
 import ProductCard from "./ProductCard"
 
-export default function ProductList({products}){
-    console.log(products);
+export default function ProductList({products , currentUser, onAddCart}){
+    // console.log(products);
     const renderProducts = products.map((product) => (
             <ProductCard
-              key={product.id}
+              key={Math.floor(Math.random() * (1 - 10000 + 1)) + 1}
               product={product}
+              currentUser={currentUser}
+              onAddCart={onAddCart}
             />
           ));
-    return <ul className="product-card">{renderProducts}</ul> 
+    return <div className="product-card">{renderProducts}</div> 
     
 }
 

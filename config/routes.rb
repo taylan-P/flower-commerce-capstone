@@ -1,12 +1,12 @@
 Rails.application.routes.draw do
   
-  resources :cart_items, only: [:index]
-  resources :carts, only: [:show]
+  resources :cart_items, only: [:index,:show ,:create]
+  resources :carts, only: [:show,:index , :create]
   # resources :products , only: [:index]
-  # resources :cart_items
+  # resources :cart_items , only: [:create]
   # resources :products
   # resources :product_categories
-  # resources :users
+  resources :users
    get '/products', to: 'products#index'
    post "/signup", to: "users#create"
    get "/me", to: "users#show"

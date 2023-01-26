@@ -3,7 +3,7 @@ import { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import ProductList from "../components/products/ProductList";
 
-export default function ProductPage(){
+export default function ProductPage({currentUser, onAddCart}){
  const [products , setProducts] = useState([])
 const navigate = useNavigate()
     useEffect(() => {
@@ -23,7 +23,7 @@ const navigate = useNavigate()
     // console.log(plants)
     return(
         <>
-        <ProductList products={products} />
+        <ProductList onAddCart={onAddCart} currentUser={currentUser} products={products} />
         </>
     )
 }

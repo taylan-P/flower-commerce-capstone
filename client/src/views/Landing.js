@@ -5,8 +5,19 @@ import Navbar from "../components/Navbar";
 import LandingContent from "../components/landing/LandingContent";
 
 
-export default function Landing() {
+export default function Landing(user) {
 
+    useEffect(()=>{
+        fetch(`/carts`, {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json"
+          },
+            body: JSON.stringify({
+              user_id: user.id,
+            })
+        })
+    },[]);
     return (
         <>
             <LandingContent />

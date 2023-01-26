@@ -62,7 +62,7 @@ export default function Signup({ onLogin }) {
             <div className='signup-page'>
             <div className="form-container">
                 <form onSubmit={handleLogin}>
-                    <div className="form-header">Welcome</div>
+                    <div className="form-header">Sign In!</div>
                     <p style={{ color: 'red' }}>{errors ? errors : null}</p>
                     <input type="text" name="username" placeholder="username..." className="form-input" value={username} onChange={handleChangeUsername} />
                     <input type="password" name="password" placeholder="password..." className="form-input" value={password} onChange={handleChangePassword} />
@@ -77,7 +77,7 @@ export default function Signup({ onLogin }) {
         
         ):(
         <div className="signup-page">
-            <div className="form-container">
+            <div className="signup-container">
                 <form onSubmit={handleSignup}>
                     <div className="form-header">Sign Up</div>
                     <p style={{ color: 'red' }}>{errors ? errors : null}</p>
