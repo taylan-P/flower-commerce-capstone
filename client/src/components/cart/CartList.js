@@ -1,7 +1,7 @@
 import React, { useEffect } from "react";
 import CartCard from './CartCard'
 
-export default function CartList({user,cartItems}){
+export default function CartList({cartItems}){
     const reversed = [...cartItems].reverse();
 
 const renderProductsToCart = reversed.map((product) => (

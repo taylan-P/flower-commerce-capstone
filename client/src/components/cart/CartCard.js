@@ -5,10 +5,10 @@ import { XMarkIcon } from "@heroicons/react/24/outline";
 export default function CartCard({ product }) {
     const { name, price, inventory_count, image } = product;
     
-    function handleDelete(){
-        debugger
-        // fetch('/cart_items/${id}')
-    }
+    // function handleDelete(){
+    //     debugger
+    //     // fetch('/cart_items/${id}')
+    // }
 
     return (
         <>

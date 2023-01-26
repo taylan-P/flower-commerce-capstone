@@ -20,9 +20,7 @@ useEffect(() => {
   fetch("/me").then((response) => {
     if (response.ok) {
       response.json().then((user) => {
-        
         const cart = user.carts[0].products
-        const items = user.carts[0].cart_items
         setUser(user)
         setCart(cart)
       })
