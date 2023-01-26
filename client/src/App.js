@@ -11,18 +11,32 @@ import Error from './views/Errors';
 
 function App() {
   const [user, setUser] = useState(null);
-  
-  // const [products , setProducts] = useState(null);
-  const navigate = useNavigate();
-  
-  useEffect(() => {
-    fetch("/me").then((response) => {
-      if (response.ok) {
-        response.json().then((user) => setUser(user));
-      } else 
-      navigate('/signup')
-    });
-  }, []);
+  const [cart, setCart] = useState([])
+
+// const [products , setProducts] = useState(null);
+const navigate = useNavigate();
+
+useEffect(() => {
+  fetch("/me").then((response) => {
+    if (response.ok) {
+      response.json().then((user) => {
+        
+        const cart = user.carts[0].products
+        const items = user.carts[0].cart_items
+        setUser(user)
+        setCart(cart)
+      })
+    } else 
+    navigate('/signup')
+  })
+  // .then(console.log(user))
+  // const products = user.carts[0].products
+  // setCart(products)
+}, []);
+
+  function addCart(newObj){
+    setCart([...cart, newObj])
+  }
   // console.log(user)
   // function pullProducts(){
   //   fetch('/products')
@@ -42,16 +56,16 @@ function App() {
 
   return (
     <>
-    <Navbar user={user} onLogout={setUser}/>
+    <Navbar user={user} cartItems={cart} onLogout={setUser}/>
     <Routes>
-      <Route path="/" element={<Landing />} />
+      <Route path="/" element={<Landing user={user}/>} />
       <Route path="/signup" element={<Signup onLogin={setUser} />} />
-      <Route path="/flowers" element={<ProductPage currentUser={user}/>} />
+ 
+      <Route path="/flowers" element={<ProductPage onAddCart={addCart} currentUser={user}/>} />
       <Route path="/error" element={<Error />} />
     </Routes>
     </>
  
   );
 }
-
 export default App;

@@ -5,7 +5,7 @@ import ProfileDrop from './ProfileDrop'
 import { useNavigate } from 'react-router-dom';
 import Cart from './Cart';
 
-export default function Navbar({ user, onLogout }) {
+export default function Navbar({ user, onLogout , cartItems}) {
     const navigate = useNavigate()
     const [isCartOpen, setIsCartOpen] = useState(false);
     function handleLogoutClick() {
@@ -20,17 +20,7 @@ export default function Navbar({ user, onLogout }) {
   function handleCartClick() {
     setIsCartOpen(!isCartOpen);
   }
-  function handleCartCreate(){
-    fetch(`/carts`, {
-      method: "POST",
-      headers: {
-        "Content-Type": "application/json"
-    },
-      body: JSON.stringify({
-        user_id: user.id,
-      }),
-    })
-  }
+ 
   
     
     return (
@@ -39,12 +29,10 @@ export default function Navbar({ user, onLogout }) {
                 <></>
             ) : (
                 <nav className='navbar'>
-                    {/* <Profile /> */}
                     <ShoppingCartIcon onClick={handleCartClick} size={20} strokeWidth={1} className='shopping-cart' />
-                    <button onClick={handleCartCreate} >Click me!</button>
                     <button onClick={()=>navigate('/flowers')}> Products </button>
                     <ProfileDrop user={user} onLogout={handleLogoutClick} />
-                    <Cart user={user} isOpen={isCartOpen}/>
+                    <Cart cartItems={cartItems} isOpen={isCartOpen}/>
                 </nav>
 
             )}

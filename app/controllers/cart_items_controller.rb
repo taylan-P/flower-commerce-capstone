@@ -15,6 +15,12 @@ class CartItemsController < ApplicationController
     # def create
     #     @current_user.cart.cart_items.create!(cart_item_params)
     # end
+    def destroy
+        cartItem = CartItem.find(params[:id])
+        poroduct = cartItem.products.find(params[:id])
+        cartItem.destroy
+        head :no_content
+    end
 
     private
     def cart_item_params

@@ -1,7 +1,7 @@
 import React, { useEffect ,useState } from 'react';
 import CartList from './cart/CartList'
 
-export default function Cart({isOpen,user}) {
+export default function Cart({isOpen,user , cartItems}) {
   // useEffect(() => {
   //   fetch('/carts/' + id)
   //   .then((response) => {
@@ -16,8 +16,8 @@ export default function Cart({isOpen,user}) {
 
   return (
     <div className={isOpen ? 'Cart open' : 'Cart'}>
-      <h2>My Cart</h2>
-      <CartList user={user} />
+      <h1>Cart</h1>
+      <CartList cartItems={cartItems} user={user} />
     </div>
   );
 }
